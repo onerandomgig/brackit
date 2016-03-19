@@ -4,8 +4,11 @@ import com.ranjeevmahtani.brackit.constants.AppConstants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Date;
+=======
+>>>>>>> c19e098f28dd03f5089269999f5d288f1b0435cb
 import java.util.List;
 
 import lombok.Getter;
@@ -18,8 +21,8 @@ public @Getter @Setter class Tournament implements Serializable {
     private String sport;
     private String location;
 
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
 
     private int numOfTeams;
 
