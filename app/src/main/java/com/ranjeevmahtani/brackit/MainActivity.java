@@ -12,11 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ranjeevmahtani.brackit.api.APIManager;
 import com.ranjeevmahtani.brackit.model.Tournament;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +38,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    protected void onResume() {
+        super.onResume();
+
+        List<Tournament> tournaments = APIManager.getInstance().getTournaments();
+        TourneyListAdapter listAdapter = new TourneyListAdapter(this, tournaments);
+
+        ListView lTournamentList = (ListView) findViewById(R.id.tournament_list);
+        lTournamentList.setAdapter(listAdapter);
     }
 
     @Override
@@ -61,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
     public class TourneyListAdapter extends ArrayAdapter<Tournament> {
 
-        private ArrayList<Tournament> tourneytList;
+        private List<Tournament> tourneytList;
 
-        public TourneyListAdapter(Context context, ArrayList<Tournament> tourneyList){
+        public TourneyListAdapter(Context context, List<Tournament> tourneyList){
             super(context,R.layout.tournament_list_item);
             this.tourneytList = tourneyList;
         }
@@ -73,10 +86,13 @@ public class MainActivity extends AppCompatActivity {
             notifyDataSetChanged();
         }
 
+        public int getCount() {
+            return tourneytList.size();
+        }
 
         @Override
         public Tournament getItem(int position) {
-            return super.getItem(position);
+            return tourneytList.get(position);
         }
 
         @Override
