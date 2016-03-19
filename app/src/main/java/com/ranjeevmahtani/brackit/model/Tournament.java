@@ -99,13 +99,18 @@ public @Getter @Setter class Tournament implements Serializable {
         lStage = new Stage("Finals");
         stages.add(lStage);
         _setupMatches(lStage, 1);
+
+        totalMatches = totalMatches/2;
     }
 
     private void _setupMatches(Stage aStage, int aNumOfMatches) {
 
         Match lMatch;
         for (int lIdx = 0; lIdx < aNumOfMatches; lIdx++) {
-            lMatch = new Match(new Team('A' + totalMatches + ""), new Team('B' + totalMatches + ""));
+            char lTeamA = (char)('A' + totalMatches);
+            char lTeamB = (char)('B' + totalMatches);
+
+            lMatch = new Match(new Team("Team " + lTeamA), new Team("Team " + lTeamB));
             totalMatches += 2;
 
             aStage.addMatch(lMatch);
