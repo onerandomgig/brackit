@@ -52,7 +52,7 @@ public class APIManager {
         if (tournamentsList != null) {
             return tournamentsList;
         }
-        
+
         Tournament lTournament1 = new Tournament();
         lTournament1.setName("Soccer Tournament 1");
         lTournament1.setSport("Soccer");

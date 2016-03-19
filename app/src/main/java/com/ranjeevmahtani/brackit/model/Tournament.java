@@ -17,6 +17,8 @@ public @Getter @Setter class Tournament implements Serializable {
     private String startDate;
     private String endDate;
 
+    private int numOfTeams;
+    
     private List<Stage> stages;
     private List<Team> teams;
 
