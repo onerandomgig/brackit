@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.ranjeevmahtani.brackit.model.Tournament;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
