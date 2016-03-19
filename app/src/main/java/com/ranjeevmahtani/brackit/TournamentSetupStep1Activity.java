@@ -27,7 +27,16 @@ public class TournamentSetupStep1Activity extends AppCompatActivity {
                 EditText teamCountInput = (EditText) findViewById(R.id.tourney_team_count_input);
                 int teamCount;
                 if (teamCountInput.getText() != null && !teamCountInput.getText().toString().isEmpty()) {
-                    teamCount = (Integer.valueOf(teamCountInput.getText().toString()));
+                    try {
+                        teamCount = (Integer.valueOf(teamCountInput.getText().toString().trim()));
+                        if (teamCount % 2 != 0) {
+                            Toast.makeText(TournamentSetupStep1Activity.this, "Must enter an even number of teams", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } catch (NumberFormatException e) {
+                        teamCount = 8;
+                    }
+
                 } else {
                     Toast.makeText(TournamentSetupStep1Activity.this, "You need at least 2 teams", Toast.LENGTH_SHORT).show();
                     return;
