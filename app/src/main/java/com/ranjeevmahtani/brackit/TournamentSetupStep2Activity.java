@@ -53,7 +53,7 @@ public class TournamentSetupStep2Activity extends AppCompatActivity {
                 for (int i = 0; i< mTeamEntryViews.size(); i++) {
                     Team team = new Team();
                     team.setName(mTeamEntryViews.get(i).getText().toString());
-                    team.setRank(i);
+                    team.setRank((i+1));
                     mTourney.addTeam(team);
                 }
                 mTourney.organize();

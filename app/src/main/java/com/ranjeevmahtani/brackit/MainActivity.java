@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ranjeevmahtani.brackit.api.APIManager;
+import com.ranjeevmahtani.brackit.constants.AppConstants;
 import com.ranjeevmahtani.brackit.model.Tournament;
 
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             // Get the data item for this position
-            Tournament tourney = getItem(position);
+            final Tournament tourney = getItem(position);
             // Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.tournament_list_item, parent, false);
@@ -112,6 +113,17 @@ public class MainActivity extends AppCompatActivity {
             tourneySport.setText(tourney.getSport());
             tourneyLocation.setText(tourney.getLocation());
             // Return the completed view to render on screen
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, BracketActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(AppConstants.Extras.TOURNAMENT, tourney);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
             return convertView;
         }
     }

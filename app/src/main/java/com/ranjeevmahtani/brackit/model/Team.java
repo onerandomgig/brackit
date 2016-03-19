@@ -22,6 +22,6 @@ public @Getter @Setter class Team implements Serializable, Comparable {
 
     @Override
     public int compareTo(Object another) {
-        return ((Team)another).getRank() - rank;
+        return rank - ((Team)another).getRank();
     }
 }

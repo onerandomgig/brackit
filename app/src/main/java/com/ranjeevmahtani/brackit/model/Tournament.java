@@ -64,7 +64,7 @@ public @Getter @Setter class Tournament implements Serializable {
         int lIdx = 0;
         for (Match lMatch : stages.get(0).getMatches()) {
             lMatch.setTeamOne(lGroupA.get(lIdx));
-            lMatch.setTeamTwo(lGroupA.get(lIdx));
+            lMatch.setTeamTwo(lGroupB.get(lIdx));
 
             lIdx++;
         }
@@ -113,12 +113,12 @@ public @Getter @Setter class Tournament implements Serializable {
     }
 
     public static final boolean isPowerofTwo(int aNumber) {
-        while (aNumber / 2 != 0) {
-            aNumber  = aNumber / 2;
-            if (aNumber % 2 != 0) {
-                return false;
-            }
-        }
+//        while (aNumber / 2 != 0) {
+//            aNumber  = aNumber / 2;
+//            if (aNumber % 2 != 0) {
+//                return false;
+//            }
+//        }
 
         return true;
     }

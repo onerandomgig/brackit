@@ -1,29 +1,57 @@
 package com.ranjeevmahtani.brackit;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import com.ranjeevmahtani.brackit.constants.AppConstants;
+import com.ranjeevmahtani.brackit.model.Tournament;
 
 public class BracketActivity extends AppCompatActivity {
+
+    private Tournament mTourney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bracket);
+        Intent intent = getIntent();
+        mTourney = (Tournament) intent.getExtras().get(AppConstants.Extras.TOURNAMENT);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(mTourney.getName());
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        ViewPager vp = (ViewPager) findViewById(R.id.viewpager);
+        vp.setAdapter(new StageAdapter(getSupportFragmentManager()));
+    }
+
+    public class StageAdapter extends FragmentStatePagerAdapter{
+
+        public StageAdapter(FragmentManager fm){
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return TourneyStageFragment.newInstance(mTourney.getStages().get(position));
+
+        }
+
+        @Override
+        public int getCount() {
+            return mTourney.getStages().size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTourney.getStages().get(position).getName();
+        }
     }
 
 }
