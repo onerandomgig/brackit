@@ -111,4 +111,15 @@ public @Getter @Setter class Tournament implements Serializable {
             aStage.addMatch(lMatch);
         }
     }
+
+    public static final boolean isPowerofTwo(int aNumber) {
+        while (aNumber / 2 != 0) {
+            aNumber  = aNumber / 2;
+            if (aNumber % 2 != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
