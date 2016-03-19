@@ -56,6 +56,7 @@ public class TournamentSetupStep2Activity extends AppCompatActivity {
                     team.setRank(i);
                     mTourney.addTeam(team);
                 }
+                mTourney.organize();
                 APIManager.getInstance().addTournament(mTourney);
                 Log.e(LOG_TAG, "mTourney added via APIManager");
                 startActivity(new Intent(TournamentSetupStep2Activity.this, MainActivity.class));
