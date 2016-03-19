@@ -51,6 +51,7 @@ public class TournamentSetupStep1Activity extends AppCompatActivity {
                 Intent intent = new Intent(TournamentSetupStep1Activity.this, TournamentSetupStep2Activity.class);
                 Bundle args = new Bundle();
                 args.putSerializable(AppConstants.Extras.TOURNAMENT, tourney);
+                intent.putExtras(args);
                 startActivity(intent);
             }
         });
