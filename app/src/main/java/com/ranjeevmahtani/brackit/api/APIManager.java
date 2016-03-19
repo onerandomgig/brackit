@@ -49,29 +49,9 @@ public class APIManager {
 
     public List<Tournament> getTournaments() {
 
-        if (tournamentsList != null) {
-            return tournamentsList;
+        if (tournamentsList == null) {
+            tournamentsList = new ArrayList<>();
         }
-
-        Tournament lTournament1 = new Tournament();
-        lTournament1.setName("Soccer Tournament 1");
-        lTournament1.setSport("Soccer");
-        lTournament1.setLocation("San Francisco");
-
-        Tournament lTournament2 = new Tournament();
-        lTournament2.setName("Soccer Tournament 2");
-        lTournament2.setSport("Soccer");
-        lTournament2.setLocation("San Francisco");
-
-        Tournament lTournament3 = new Tournament();
-        lTournament3.setName("Soccer Tournament 3");
-        lTournament3.setSport("Soccer");
-        lTournament3.setLocation("San Francisco");
-
-        addTournament(lTournament1);
-        addTournament(lTournament2);
-        addTournament(lTournament3);
-
         return tournamentsList;
     }
 }

@@ -9,10 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ranjeevmahtani.brackit.constants.AppConstants;
-import com.ranjeevmahtani.brackit.model.Team;
 import com.ranjeevmahtani.brackit.model.Tournament;
-
-import java.util.ArrayList;
 
 public class TournamentSetupStep1Activity extends AppCompatActivity {
 
@@ -43,7 +40,7 @@ public class TournamentSetupStep1Activity extends AppCompatActivity {
 
                 Tournament tourney = new Tournament();
                 tourney.setName(name);
-                tourney.setTeams(new ArrayList<Team>(teamCount));
+                tourney.setNumOfTeams(teamCount);
                 tourney.setSport(sport);
                 tourney.setStartDate(start);
                 tourney.setEndDate(end);

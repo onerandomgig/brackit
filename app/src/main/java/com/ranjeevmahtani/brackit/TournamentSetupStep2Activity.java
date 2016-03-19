@@ -33,15 +33,16 @@ public class TournamentSetupStep2Activity extends AppCompatActivity {
         Intent intent = getIntent();
         mTourney = (Tournament) intent.getExtras().get(AppConstants.Extras.TOURNAMENT);
 
-        mTeamEntryViews = new ArrayList<>(mTourney.getTeams().size());
+        mTeamEntryViews = new ArrayList<>();
 
         LinearLayout teamEntryViewsContainer = (LinearLayout) findViewById(R.id.team_name_input_container);
         teamEntryViewsContainer.removeAllViews();
 
-        for (int i = 0; i < mTourney.getTeams().size(); i++) {
+        for (int i = 0; i < mTourney.getNumOfTeams(); i++) {
             View teamEntryViewLayout =  getLayoutInflater().inflate(R.layout.tourney_team_entry_view, null, false);
             EditText teamEntryEditText = (EditText) teamEntryViewLayout.findViewById(R.id.teamEntryEditText);
-            teamEntryEditText.setHint("Rank " + i + " Team Name");
+            teamEntryEditText.setHint("Rank " + (i+1) + " Team Name");
+            teamEntryEditText.setText("Team " + (i+1));
             mTeamEntryViews.add(teamEntryEditText);
             teamEntryViewsContainer.addView(teamEntryEditText);
         }
