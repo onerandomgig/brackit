@@ -1,5 +1,11 @@
 package com.ranjeevmahtani.brackit.api;
 
+import com.ranjeevmahtani.brackit.constants.AppConstants;
+import com.ranjeevmahtani.brackit.model.Tournament;
+import com.ranjeevmahtani.brackit.model.User;
+
+import java.util.List;
+
 public class APIManager {
 
     private static APIManager mSingletonInstance;
@@ -20,5 +26,21 @@ public class APIManager {
         }
 
         return mSingletonInstance;
+    }
+
+    public User login(String aEmail, String aPassword) {
+        User lLoggedInUser = new User();
+        lLoggedInUser.setName("Brack It");
+        lLoggedInUser.setRole(AppConstants.ROLE_ADMIN);
+
+        return lLoggedInUser;
+    }
+
+    public void addTournament(Tournament aTournament) {
+
+    }
+
+    public List<Tournament> getTournaments() {
+        return null;
     }
 }
