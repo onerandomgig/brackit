@@ -29,8 +29,8 @@ public class TournamentSetupStep1Activity extends AppCompatActivity {
                 if (teamCountInput.getText() != null && !teamCountInput.getText().toString().isEmpty()) {
                     try {
                         teamCount = (Integer.valueOf(teamCountInput.getText().toString().trim()));
-                        if (teamCount % 2 != 0) {
-                            Toast.makeText(TournamentSetupStep1Activity.this, "Must enter an even number of teams", Toast.LENGTH_SHORT).show();
+                        if (!Tournament.isPowerofTwo(teamCount)) {
+                            Toast.makeText(TournamentSetupStep1Activity.this, "Must enter a valid tournament size", Toast.LENGTH_SHORT).show();
                             return;
                         }
                     } catch (NumberFormatException e) {

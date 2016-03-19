@@ -31,16 +31,19 @@
         <activity
             android:name=".WebViewActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TournamentSetupStep1Activity"
             android:label="Add Tourney Step 1"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TournamentSetupStep2Activity"
             android:label="Add Tourney Step 1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BracketActivity"
+            android:label="@string/title_activity_bracket"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
