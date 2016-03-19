@@ -4,12 +4,15 @@ import com.ranjeevmahtani.brackit.constants.AppConstants;
 import com.ranjeevmahtani.brackit.model.Tournament;
 import com.ranjeevmahtani.brackit.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class APIManager {
 
     private static APIManager mSingletonInstance;
     private NetworkAccessor mNetworkAccessor;
+
+    private List<Tournament> tournamentsList;
 
     private APIManager() {
         mNetworkAccessor = NetworkAccessor.getInstance();
@@ -37,10 +40,38 @@ public class APIManager {
     }
 
     public void addTournament(Tournament aTournament) {
+        if (tournamentsList == null) {
+            tournamentsList = new ArrayList<>();
+        }
 
+        tournamentsList.add(aTournament);
     }
 
     public List<Tournament> getTournaments() {
-        return null;
+
+        if (tournamentsList != null) {
+            return tournamentsList;
+        }
+        
+        Tournament lTournament1 = new Tournament();
+        lTournament1.setName("Soccer Tournament 1");
+        lTournament1.setSport("Soccer");
+        lTournament1.setLocation("San Francisco");
+
+        Tournament lTournament2 = new Tournament();
+        lTournament2.setName("Soccer Tournament 2");
+        lTournament2.setSport("Soccer");
+        lTournament2.setLocation("San Francisco");
+
+        Tournament lTournament3 = new Tournament();
+        lTournament3.setName("Soccer Tournament 3");
+        lTournament3.setSport("Soccer");
+        lTournament3.setLocation("San Francisco");
+
+        addTournament(lTournament1);
+        addTournament(lTournament2);
+        addTournament(lTournament3);
+
+        return tournamentsList;
     }
 }
