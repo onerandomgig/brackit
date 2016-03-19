@@ -3,7 +3,7 @@
     package="com.ranjeevmahtani.brackit">
 
     <!-- To access pictures and make API calls -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.NETWORK" />
 
     <!-- To save downloaded pictures to disk cache -->
@@ -31,8 +31,16 @@
         <activity
             android:name=".WebViewActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TournamentSetupStep1Activity"
+            android:label="Add Tourney Step 1"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".TournamentSetupStep2Activity"
+            android:label="Add Tourney Step 1"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

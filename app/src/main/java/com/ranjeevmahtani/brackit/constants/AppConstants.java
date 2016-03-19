@@ -13,5 +13,6 @@ public class AppConstants {
 
     public static class Extras {
         public static final String WEB_URL = "weburl";
+        public static final String TOURNAMENT = "tournament";
     }
 }

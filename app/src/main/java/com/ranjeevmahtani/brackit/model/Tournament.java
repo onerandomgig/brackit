@@ -2,7 +2,6 @@ package com.ranjeevmahtani.brackit.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -15,8 +14,8 @@ public @Getter @Setter class Tournament implements Serializable {
     private String sport;
     private String location;
 
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
 
     private List<Stage> stages;
     private List<Team> teams;
